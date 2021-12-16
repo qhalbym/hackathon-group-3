@@ -1,3 +1,29 @@
+function loginBtn(playerName){
+  let alfabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ '
+  let countAlphabetName = 0
+  for(let i = 0; i < playerName.length; i++){
+    for(let j = 0; j < alfabet.length; j++){
+      if(playerName[i] === alfabet[j]){
+        countAlphabetName++
+      }
+    }
+  }
+
+  if(!playerName){
+    return 'Silahkan input Player terlebih dahulu'
+  } else if(countAlphabetName !== playerName.length){
+    return 'Nama tidak boleh berkarakter'
+  }else if(playerName.length < 3){
+    return 'Minimal mengisi 3 alfabet'
+  } else {
+    return `Hallo ${playerName}, Semoga berhasil menjawab!`
+  }
+}
+
+let inputName = ''
+
+console.log(loginBtn(inputName))
+
 function randomQuestion(array) {
   //random pertanyaan2
   let randIndex = Math.floor(Math.random() * array.length)
