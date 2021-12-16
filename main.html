@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./font-awesome-4.7.0\css\font-awesome.min.css">
+    <link rel="stylesheet" href="./main.css" />
+
+    <title>MCU Quiz</title>
+  </head>
+
+  <body>
+    <div class="container fixed-top pt-3">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="card border rounded-5 shadow-lg">
+            <div class="card-body">
+              <h1 class="ps-3 border-bottom border-black fw-bold">
+                Nama Peserta
+              </h1>
+              <h2 id="nama-pemain" class="ps-3">Namanya</h2>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4">
+          <div class="card shadow-lg">
+            <div class="card-body text-center">
+              <h1 class="border-bottom d-inline border-success fw-bold">
+                Score
+              </h1>
+              <h2 id="score-board">Score Live </h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div style="background-image: url('background.png'); background-position: top">
+      <div class="container" style="padding-top: 27rem">
+        <div class="d-flex justify-content-center">
+          <div class="container">
+            <div class="card shadow" style="width: auto">
+              <div class="card-body bg-light text-center">
+                <h1 class="card-title fw-bold">Question</h1>
+                <hr class="text-black" />
+                <h3 id="pertanyaan" class="card-text">Pertanyaan Pertama</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+      <div class="container px-4 pt-3">
+        <div class="row row-cols-1 row-cols-md-2 g-4 text-center">
+          <div class="col" onclick="checkJawaban('0')">
+            <div class="card-pertama shadow bg-light">
+              <div class="card-body pertama">
+                <h2 class="card-title fw-bold">A</h2>
+                <hr style="color: green" />
+                <h3 id="jawaban-1" class="card-text">Jawaban Pertama</h3>
+              </div>
+            </div>
+          </div>
+          <div class="col" onclick="checkJawaban('1')">
+            <div class="card-kedua shadow bg-light">
+              <div class="card-body kedua">
+                <h2 class="card-title">B</h2>
+                <hr style="color: purple" />
+                <h3 id="jawaban-2" class="card-text">Jawaban Kedua</h3>
+              </div>
+            </div>
+          </div>
+          <div class="col" onclick="checkJawaban('2')">
+            <div class="card-ketiga shadow bg-light">
+              <div class="card-body ketiga">
+                <h2 class="card-title">C</h2>
+                <hr style="color: blue" />
+                <h3 id="jawaban-3" class="card-text">Jawaban Ketiga</h3>
+              </div>
+            </div>
+          </div>
+          <div class="col" onclick="checkJawaban('3')">
+            <div class="card-keempat shadow bg-light">
+              <div class="card-body keempat">
+                <h2 class="card-title">D</h2>
+                <hr style="color: red" />
+                <h3 id="jawaban-4" class="card-text">Pertanyaan Keempat</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="float">
+      <h5 class="text-white ps-3">Bantuan</h5>
+      <div class="d-flex flex-column mb-3">
+        <div class="p-2"><button type="button" class="btn btn-primary" onclick="fiftyFifty()">50:50 <i class="fa fa-times" aria-hidden="true"></i></button></div>
+        <div class="p-2"><button type="button" class="btn btn-primary">Call <i class="fa fa-whatsapp" aria-hidden="true"></i></button></div>
+        <div class="p-2"><button type="button" class="btn btn-primary">Ask <i class="fa fa-question-circle" aria-hidden="true"></i></button></div>
+      </div>
+    </div>
+
+
+
+
+
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+  <script src="index.js"></script>
+</body>
+
+</html>
