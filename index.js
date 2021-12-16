@@ -20,8 +20,8 @@ let mcu = [
   },
   {
     question: "<em>In the Incredible Hulk, what does Tony tell Thaddeus Ross at the end of the film?</em>",
-    option: ["Adamantium", "Vibranium", "Promethium", "Carbonadium"],
-    answer: "Vibranium",
+    option: ["That he wants to study The Hulk", "That he knows about S.H.I.E.L.D.", "That they are putting a team together", "That Thaddeus owes him money"],
+    answer: "That they are putting a team together",
   },
   {
     question: "<em>The Flerkens are a race of extremely dangerous aliens that resembles what?</em>",
@@ -44,9 +44,9 @@ let mcu = [
     answer: "Loki",
   },
   {
-    question: "<em>Who was the last holder of the Space Stone before Thanos claims it for his Infinity Gauntlet?</em>",
-    option: ["Thor", "Loki", "The Collector", "Tony Stark"],
-    answer: "Loki",
+    question: "<em>Who is killed by Loki in the Avengers?</em>",
+    option: ["Maria Hill", "Nick Fury", "Agent Coulson", "Thanos"],
+    answer: "Agent Coulson",
   },
   {
     question: "<em>What fake name does Natasha use when she first meets Tony?</em>",
@@ -85,6 +85,8 @@ let mcu = [
   },
 ];
 
+// console.log(randomQuestion(mcu)) // test random question
+
 function getReward(score) {
   let output = ""
   let reward = ["Paling baik", "Boleh lah", "Alakadarnya", "Ejek Pemainnya"] // Nanti isi reward popup dari frontend
@@ -102,22 +104,22 @@ function getReward(score) {
 
 // console.log(getReward(score)) 
 
-function loginBtn(playerName){
+function loginBtn(playerName) {
   let alfabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ '
   let countAlphabetName = 0
-  for(let i = 0; i < playerName.length; i++){
-    for(let j = 0; j < alfabet.length; j++){
-      if(playerName[i] === alfabet[j]){
+  for (let i = 0; i < playerName.length; i++) {
+    for (let j = 0; j < alfabet.length; j++) {
+      if (playerName[i] === alfabet[j]) {
         countAlphabetName++
       }
     }
   }
 
-  if(!playerName){
+  if (!playerName) {
     return 'Silahkan input Player terlebih dahulu'
-  } else if(countAlphabetName !== playerName.length){
+  } else if (countAlphabetName !== playerName.length) {
     return 'Nama tidak boleh berkarakter'
-  }else if(playerName.length < 3){
+  } else if (playerName.length < 3) {
     return 'Minimal mengisi 3 alfabet'
   } else {
     return `Hallo ${playerName}, Semoga berhasil menjawab!`
