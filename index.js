@@ -3,7 +3,7 @@ let namaPemain = "abi"
 let pertanyaan = {}
 
 function randomQuestion() {
-  let listMovie = [ //list pertanyaan
+  let listMovie = [
     {
       question: "<em>What year was the first Iron Man movie released, kicking off the Marvel Cinematic Universe?</em>",
       option: [2005, 2008, 2010, 2012],
@@ -16,8 +16,8 @@ function randomQuestion() {
     },
     {
       question: "<em>In the Incredible Hulk, what does Tony tell Thaddeus Ross at the end of the film?</em>",
-      option: ["Adamantium", "Vibranium", "Promethium", "Carbonadium"],
-      answer: "Vibranium",
+      option: ["That he wants to study The Hulk", "That he knows about S.H.I.E.L.D.", "That they are putting a team together", "That Thaddeus owes him money"],
+      answer: "That they are putting a team together",
     },
     {
       question: "<em>The Flerkens are a race of extremely dangerous aliens that resembles what?</em>",
@@ -40,9 +40,9 @@ function randomQuestion() {
       answer: "Loki",
     },
     {
-      question: "<em>Who was the last holder of the Space Stone before Thanos claims it for his Infinity Gauntlet?</em>",
-      option: ["Thor", "Loki", "The Collector", "Tony Stark"],
-      answer: "Loki",
+      question: "<em>Who is killed by Loki in the Avengers?</em>",
+      option: ["Maria Hill", "Nick Fury", "Agent Coulson", "Thanos"],
+      answer: "Agent Coulson",
     },
     {
       question: "<em>What fake name does Natasha use when she first meets Tony?</em>",
@@ -80,6 +80,7 @@ function randomQuestion() {
       answer: "Neurosurgeon",
     },
   ];
+  
   //random pertanyaan2
   let randIndex = Math.floor(Math.random() * listMovie.length)
   pertanyaan = listMovie[randIndex]
