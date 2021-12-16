@@ -1,80 +1,106 @@
+let countGame = 0
 let score = 4
-let namaPemain = "abi"
-let pertanyaan = {}
+let namaPemain = "Son Goku"
+let getNama = document.getElementById("nama-pemain")
+let getScore = document.getElementById("score-board")
+let currentPertanyaan = {}
+let sudahMuncul = {}
+let btnJawaban1 = document.getElementById("jawaban-1")
+let btnJawaban2 = document.getElementById("jawaban-2")
+let btnJawaban3 = document.getElementById("jawaban-3")
+let btnJawaban4 = document.getElementById("jawaban-4")
+getNama.innerHTML = namaPemain
+getScore.innerHTML = score
+
 
 function randomQuestion() {
   let listMovie = [
     {
+      id: 1,
       question: "<em>What year was the first Iron Man movie released, kicking off the Marvel Cinematic Universe?</em>",
       option: [2005, 2008, 2010, 2012],
       answer: 2008,
     },
     {
+      id: 2,
       question: "<em>WWhat is the name of Thor hammer?</em>",
       option: ["Vanir", "Mjolnir", "Aesir", "Norn"],
       answer: "Mjolnir",
     },
     {
+      id: 3,
       question: "<em>In the Incredible Hulk, what does Tony tell Thaddeus Ross at the end of the film?</em>",
       option: ["That he wants to study The Hulk", "That he knows about S.H.I.E.L.D.", "That they are putting a team together", "That Thaddeus owes him money"],
       answer: "That they are putting a team together",
     },
     {
+      id: 4,
       question: "<em>The Flerkens are a race of extremely dangerous aliens that resembles what?</em>",
       option: ["Cats", "Ducks", "Reptiles", "Raccoons"],
       answer: "Cats",
     },
     {
+      id: 5,
       question: "<em>Before becoming Vision, what is the name of Iron Man A.I. butler?</em>",
       option: ["H.O.M.E.R.", "J.A.R.V.I.S.", "A.L.F.R.E.D.", "M.A.R.V.I.N."],
       answer: "J.A.R.V.I.S.",
     },
     {
+      id: 6,
       question: "<em>What is the alien race Loki sends to invade Earth in The Avengers?</em>",
       option: ["The Chitauri", "The Skrulls", "The Kree", "The Flerkens"],
       answer: "The Chitauri",
     },
     {
+      id: 7,
       question: "<em>Who was the last holder of the Space Stone before Thanos claims it for his Infinity Gauntlet?</em>",
       option: ["Thor", "Loki", "The Collector", "Tony Stark"],
       answer: "Loki",
     },
     {
+      id: 8,
       question: "<em>Who is killed by Loki in the Avengers?</em>",
       option: ["Maria Hill", "Nick Fury", "Agent Coulson", "Thanos"],
       answer: "Agent Coulson",
     },
     {
+      id: 9,
       question: "<em>What fake name does Natasha use when she first meets Tony?</em>",
       option: ["Natalie Rushman", "Natalia Romanoff", "TNicole Rohan", "Naya Rabe"],
       answer: "Natalie Rushman",
     },
     {
+      id: 10,
       question: "<em>About which city do Hawkeye and Black Widow often reminisce</em>",
       option: ["Budapest", "Prague", "Istanbul", "Sokovia"],
       answer: "Budapest",
     },
     {
+      id: 11,
       question: "<em>Who does the Mad Titan sacrifice to acquire the Soul Stone?</em>",
       option: ["Nebula", "Ebony Maw", "Cull Obsidian", "Gamora"],
       answer: "Gamora",
     },
     {
+      id: 12,
       question: "<em>What word does Tony utter that makes Steve say Language?</em>",
       option: ["Crap!", "Asshole", "Shit", "Idiot"],
       answer: "Shit",
     },
     {
+      id: 13,
       question: "<em>Who is Black Panther sister?</em>",
       option: ["Shuri", "Nakia", "Ramonda", "Okoye"],
       answer: "Shuri",
     },
     {
+      id: 14,
       question: "<em>What landmark does Peter Parker rescue his classmates from in Spider-Man: Homecoming?</em>",
       option: ["Washington Monument", "Statue of Liberty", "Mount Rushmore", "Golden Gate Bridge"],
       answer: "Washington Monument",
     },
     {
+      id: 1,
       question: "<em>What type of doctor is Stephen Strange?</em>",
       option: ["Neurosurgeon", "Cardiothoracic Surgeon", "Trauma Surgeon", "Plastic Surgeon"],
       answer: "Neurosurgeon",
@@ -83,17 +109,30 @@ function randomQuestion() {
   
   //random pertanyaan2
   let randIndex = Math.floor(Math.random() * listMovie.length)
-  pertanyaan = listMovie[randIndex]
+  if (!sudahMuncul[randIndex]) {
+    sudahMuncul[randIndex] = 0
+    pertanyaan = listMovie[randIndex]
+  } else {
+    while (sudahMuncul[randIndex]) {
+      randIndex = Math.floor(Math.random() * listMovie.length)
+      if (!sudahMuncul[randIndex]) {
+        pertanyaan = listMovie[randIndex]
+        break
+      }
+    }
+  }
   let colPertanyaan = document.getElementById("pertanyaan")
-  let btnJawaban1 = document.getElementById("jawaban-1")
-  let btnJawaban2 = document.getElementById("jawaban-2")
-  let btnJawaban3 = document.getElementById("jawaban-3")
-  let btnJawaban4 = document.getElementById("jawaban-4")
   colPertanyaan.innerHTML = pertanyaan.question
   btnJawaban1.innerHTML = pertanyaan.option[0]
+  btnJawaban1.value = pertanyaan.option[0]
   btnJawaban2.innerHTML = pertanyaan.option[1]
+  btnJawaban2.value = pertanyaan.option[1]
   btnJawaban3.innerHTML = pertanyaan.option[2]
+  btnJawaban3.value = pertanyaan.option[2]
   btnJawaban4.innerHTML = pertanyaan.option[3]
+  btnJawaban4.value = pertanyaan.option[3]
+  currentPertanyaan = pertanyaan
+  console.log(sudahMuncul)
 }
 randomQuestion()
 
@@ -134,11 +173,10 @@ function loginBtn(playerName){
   }
 }
 
-function checkJawaban(jawaban, jawabanBenar) { //Jawaban adalah value dari tombol yg dipilih user, jawabanBenar adalah jawaban dari object pertanyaan
-  if (jawaban == jawabanBenar) {
+function checkJawaban(jawaban) { //Jawaban adalah value dari tombol yg dipilih user, jawabanBenar adalah jawaban dari object pertanyaan
+  if (jawaban == currentPertanyaan.answer) {
     score++
-    return "Jawaban Benar"
-  } else {
-    return "Jawaban Salah Coba Lagi"
+    countGame++
   }
+  countGame++
 }
