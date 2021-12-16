@@ -1,28 +1,5 @@
-function loginBtn(playerName){
-  let alfabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ '
-  let countAlphabetName = 0
-  for(let i = 0; i < playerName.length; i++){
-    for(let j = 0; j < alfabet.length; j++){
-      if(playerName[i] === alfabet[j]){
-        countAlphabetName++
-      }
-    }
-  }
-
-  if(!playerName){
-    return 'Silahkan input Player terlebih dahulu'
-  } else if(countAlphabetName !== playerName.length){
-    return 'Nama tidak boleh berkarakter'
-  }else if(playerName.length < 3){
-    return 'Minimal mengisi 3 alfabet'
-  } else {
-    return `Hallo ${playerName}, Semoga berhasil menjawab!`
-  }
-}
-
-let inputName = ''
-
-console.log(loginBtn(inputName))
+let score = 4
+let namaPemain = ""
 
 function randomQuestion(array) {
   //random pertanyaan2
@@ -107,3 +84,46 @@ let mcu = [
     answer: "Neurosurgeon",
   },
 ];
+
+function getReward(score) {
+  let output = ""
+  let reward = ["Paling baik", "Boleh lah", "Alakadarnya", "Ejek Pemainnya"] // Nanti isi reward popup dari frontend
+  if (score >= 9) {
+    output = reward[0]
+  } else if (score >= 7) {
+    output = reward[1]
+  } else if (score >= 5) {
+    output = reward[2]
+  } else {
+    output = reward[3]
+  }
+  return output // output create element untuk popup berdasarkan score
+}
+
+// console.log(getReward(score)) 
+
+function loginBtn(playerName){
+  let alfabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ '
+  let countAlphabetName = 0
+  for(let i = 0; i < playerName.length; i++){
+    for(let j = 0; j < alfabet.length; j++){
+      if(playerName[i] === alfabet[j]){
+        countAlphabetName++
+      }
+    }
+  }
+
+  if(!playerName){
+    return 'Silahkan input Player terlebih dahulu'
+  } else if(countAlphabetName !== playerName.length){
+    return 'Nama tidak boleh berkarakter'
+  }else if(playerName.length < 3){
+    return 'Minimal mengisi 3 alfabet'
+  } else {
+    return `Hallo ${playerName}, Semoga berhasil menjawab!`
+  }
+}
+
+let inputName = ''
+
+// console.log(loginBtn(inputName))
