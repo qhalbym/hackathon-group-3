@@ -24,28 +24,30 @@
 </head>
 
 <body>
-    <div id="login" class="global-container" style="background-image: url('background.jpg'); opacity: 90%;">
-      <div class="card-login-form">
-          <div class="card-body bg-light shadow-lg border-0" style="border-radius: 5%;">
-              <h1 class="card-title text-center fw-bold pb-3">WELCOME TO MCU QUIZ</h1>
-              <div class="card-text">
-                  <form onsubmit="login(event)" id=formlogin>
-                      <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label"><i class="fa fa-user" aria-hidden="true"></i> username </label>
-                        <input type="text" class="form-control" id="nama" aria-describedby="emailHelp">
-                      </div>
-                      <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">age</label>
-                        <input type="number" class="form-control" id="age">
-                      </div>
-                      </div>
-                      <div class="d-grid gap-2 pb-3">
-                          <button type="submit"  class="btn btn-primary">Start</button>
-                      </div>
-                    </form>
-              </div>
-          </div>
+  <div id="login" class="global-container" style="background-image: url('background.jpg'); opacity: 90%;">
+    <div class="card-login-form">
+      <div class="card-body bg-light shadow-lg border-0" style="border-radius: 5%;">
+        <h1 class="card-title text-center fw-bold pb-3">WELCOME TO MCU QUIZ</h1>
+        <div class="card-text">
+          <form onsubmit="login(event)" id=formlogin>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label"><i class="fa fa-user" aria-hidden="true"></i> username
+              </label>
+              <input type="text" class="form-control" id="nama" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">age</label>
+              <input type="number" min="0" max="70" class="form-control" id="age">
+            </div>
+        </div>
+        <div class="d-grid gap-2 pb-3">
+          <button type="submit" class="btn btn-primary">Start</button>
+        </div>
+        </form>
       </div>
+    </div>
+  </div>
+
   <div id="main">
     <div class="container fixed-top pt-3">
       <div class="row">
@@ -67,6 +69,7 @@
               </h1>
               <h2 id="score-board">Score Live </h2>
             </div>
+          </div>
         </div>
       </div>
     </div>
@@ -76,15 +79,16 @@
       <div class="container" style="padding-top: 27rem">
         <div class="d-flex justify-content-center">
           <div class="container">
-            <div class="card shadow" >
+            <div class="card shadow">
               <div class="card-body bg-light text-center">
                 <h1 class="card-title fw-bold">Question</h1>
                 <hr class="text-black" />
                 <h3 id="pertanyaan" class="card-text">Pertanyaan Pertama</h3>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+
 
       <div class="container px-4 pt-3">
         <div class="row row-cols-1 row-cols-md-2 g-4 text-center">
@@ -103,59 +107,58 @@
                 <h2 class="card-title">B</h2>
                 <hr style="color: purple" />
                 <h3 id="jawaban-2" class="card-text">Jawaban Kedua</h3>
+
+              </div>
+            </div>
+
+            <div class="col" onclick="checkJawaban('2')">
+              <div class="card-ketiga shadow bg-light">
+                <div class="card-body ketiga">
+                  <h2 class="card-title">C</h2>
+                  <hr style="color: blue" />
+                  <h3 id="jawaban-3" class="card-text">Jawaban Ketiga</h3>
+                </div>
+              </div>
+            </div>
+
+            <div class="col" onclick="checkJawaban('3')">
+              <div class="card-keempat shadow bg-light">
+                <div class="card-body keempat">
+                  <h2 class="card-title">D</h2>
+                  <hr style="color: red" />
+                  <h3 id="jawaban-4" class="card-text">Pertanyaan Keempat</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+         
+          <div class="float">
+            <h5 class="text-white ps-3">Bantuan</h5>
+            <div class="d-flex flex-column mb-3">
+              <div onclick="fiftyFifty()" class="p-2"><button type="button" class="btn btn-primary">50:50 <i
+                    class="fa fa-times" aria-hidden="true"></i></button></div>
+              <div class="p-2">
+                <audio id="audio">
+                  <source src="batman.mp3" type="audio/mpeg">
+                </audio>
+                <button type="button" class="btn btn-primary" onclick="batman()">Call <i class="fa fa-whatsapp"
+                    aria-hidden="true"></i>
+                </button>
+              </div>
+              <div class="p-2"><button type="button" class="btn btn-primary">Ask <i class="fa fa-question-circle"
+                    aria-hidden="true"></i></button>
               </div>
             </div>
           </div>
 
-          <div class="col" onclick="checkJawaban('2')">
-            <div class="card-ketiga shadow bg-light">
-              <div class="card-body ketiga">
-                <h2 class="card-title">C</h2>
-                <hr style="color: blue" />
-                <h3 id="jawaban-3" class="card-text">Jawaban Ketiga</h3>
-              </div>
-            </div>
-          </div>
-
-          <div class="col" onclick="checkJawaban('3')">
-            <div class="card-keempat shadow bg-light">
-              <div class="card-body keempat">
-                <h2 class="card-title">D</h2>
-                <hr style="color: red" />
-                <h3 id="jawaban-4" class="card-text">Pertanyaan Keempat</h3>
-              </div>
-            </div>
-           </div>
         </div>
-    <div class="float">
-      <h5 class="text-white ps-3">Bantuan</h5>
-      <div class="d-flex flex-column mb-3">
-        <div class="p-2"><button type="button" class="btn btn-primary">50:50 <i class="fa fa-times" aria-hidden="true"></i></button></div>
-        <div class="p-2"><button type="button" class="btn btn-primary">Call <i class="fa fa-whatsapp" aria-hidden="true"></i></button></div>
-        <div class="p-2"><button type="button" class="btn btn-primary">Ask <i class="fa fa-question-circle" aria-hidden="true"></i></button></div>
-  </div>
-  </div>
-  <div class="float">
-    <h5 class="text-white ps-3">Bantuan</h5>
-    <div class="d-flex flex-column mb-3">
-      <div class="p-2"><button type="button" class="btn btn-primary">50:50 <i class="fa fa-times"
-            aria-hidden="true"></i></button></div>
-      <div class="p-2">
-        <audio id="audio">
-          <source src="batman.mp3" type="audio/mpeg">
-        </audio>
-        <button type="button" class="btn btn-primary" onclick="batman()">Call <i class="fa fa-whatsapp"
-            aria-hidden="true"></i>
-        </button>
       </div>
     </div>
   </div>
 
-</div>
-
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-    crossorigin="anonymous"></script>
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+  </script>
   <script src="index.js"></script>
 </body>
 
