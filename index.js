@@ -105,7 +105,7 @@ function randomQuestion() {
       answer: "Neurosurgeon",
     },
   ];
-  
+
   //random pertanyaan2
   let randIndex = Math.floor(Math.random() * listMovie.length)
   if (!sudahMuncul[randIndex]) {
@@ -145,22 +145,22 @@ function getReward(score) {
   return output // output create element untuk popup berdasarkan score
 }
 
-function loginBtn(playerName){
+function loginBtn(playerName) {
   let alfabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ '
   let countAlphabetName = 0
-  for(let i = 0; i < playerName.length; i++){
-    for(let j = 0; j < alfabet.length; j++){
-      if(playerName[i] === alfabet[j]){
+  for (let i = 0; i < playerName.length; i++) {
+    for (let j = 0; j < alfabet.length; j++) {
+      if (playerName[i] === alfabet[j]) {
         countAlphabetName++
       }
     }
   }
 
-  if(!playerName){
+  if (!playerName) {
     return 'Silahkan input Player terlebih dahulu'
-  } else if(countAlphabetName !== playerName.length){
+  } else if (countAlphabetName !== playerName.length) {
     return 'Nama tidak boleh berkarakter'
-  }else if(playerName.length < 3){
+  } else if (playerName.length < 3) {
     return 'Minimal mengisi 3 alfabet'
   } else {
     return `Hallo ${playerName}, Semoga berhasil menjawab!`
@@ -171,10 +171,18 @@ function checkJawaban(jawaban) { //Jawaban adalah value dari tombol yg dipilih u
   let getJawaban = currentPertanyaan.option[jawaban]
   if (getJawaban == currentPertanyaan.answer) {
     score++
-    countGame++
     getScore.innerHTML = score
   }
   countGame++
+  console.log(countGame)
+
+  if (countGame === 10) {
+    let reward = getReward(score)
+    console.log(reward)
+    // return reward
+    score = 0
+    countGame = 0
+  }
   randomQuestion()
 }
 
