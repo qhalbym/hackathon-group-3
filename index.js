@@ -127,7 +127,6 @@ function randomQuestion() {
   btnJawaban3.innerHTML = pertanyaan.option[2]
   btnJawaban4.innerHTML = pertanyaan.option[3]
   currentPertanyaan = pertanyaan
-  console.log(sudahMuncul)
 }
 randomQuestion()
 
