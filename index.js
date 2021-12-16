@@ -186,3 +186,7 @@ function checkJawaban(jawaban) { //Jawaban adalah value dari tombol yg dipilih u
   randomQuestion()
 }
 
+let audioBatman = document.getElementById("audio")
+function batman() {
+  audioBatman.play()
+}
