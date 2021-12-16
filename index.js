@@ -3,7 +3,7 @@ let namaPemain = "abi"
 let pertanyaan = {}
 
 function randomQuestion() {
-  let listMovie = [
+  let listMovie = [ //list pertanyaan
     {
       question: "<em>What year was the first Iron Man movie released, kicking off the Marvel Cinematic Universe?</em>",
       option: [2005, 2008, 2010, 2012],
@@ -80,7 +80,6 @@ function randomQuestion() {
       answer: "Neurosurgeon",
     },
   ];
-  
   //random pertanyaan2
   let randIndex = Math.floor(Math.random() * listMovie.length)
   pertanyaan = listMovie[randIndex]
