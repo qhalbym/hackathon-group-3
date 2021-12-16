@@ -1,5 +1,5 @@
 let countGame = 0
-let score = 4
+let score = 0
 let namaPemain = "Son Goku"
 let getNama = document.getElementById("nama-pemain")
 let getScore = document.getElementById("score-board")
@@ -10,7 +10,6 @@ let btnJawaban2 = document.getElementById("jawaban-2")
 let btnJawaban3 = document.getElementById("jawaban-3")
 let btnJawaban4 = document.getElementById("jawaban-4")
 getNama.innerHTML = namaPemain
-getScore.innerHTML = score
 
 
 function randomQuestion() {
@@ -124,13 +123,9 @@ function randomQuestion() {
   let colPertanyaan = document.getElementById("pertanyaan")
   colPertanyaan.innerHTML = pertanyaan.question
   btnJawaban1.innerHTML = pertanyaan.option[0]
-  btnJawaban1.value = pertanyaan.option[0]
   btnJawaban2.innerHTML = pertanyaan.option[1]
-  btnJawaban2.value = pertanyaan.option[1]
   btnJawaban3.innerHTML = pertanyaan.option[2]
-  btnJawaban3.value = pertanyaan.option[2]
   btnJawaban4.innerHTML = pertanyaan.option[3]
-  btnJawaban4.value = pertanyaan.option[3]
   currentPertanyaan = pertanyaan
   console.log(sudahMuncul)
 }
@@ -174,9 +169,13 @@ function loginBtn(playerName){
 }
 
 function checkJawaban(jawaban) { //Jawaban adalah value dari tombol yg dipilih user, jawabanBenar adalah jawaban dari object pertanyaan
-  if (jawaban == currentPertanyaan.answer) {
+  let getJawaban = currentPertanyaan.option[jawaban]
+  if (getJawaban == currentPertanyaan.answer) {
     score++
     countGame++
+    getScore.innerHTML = score
   }
   countGame++
+  randomQuestion()
 }
+
