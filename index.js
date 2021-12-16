@@ -178,11 +178,30 @@ function checkJawaban(jawaban) { //Jawaban adalah value dari tombol yg dipilih u
 
   if (countGame === 10) {
     let reward = getReward(score)
-    console.log(reward)
-    // return reward
     score = 0
     countGame = 0
   }
   randomQuestion()
 }
 
+function fiftyFifty() {
+  let hapusSalah = []
+  let getHapus = 0
+    while (hapusSalah.length < 2 ||) {
+      getHapus = Math.floor(Math.random() * 4)
+      if (currentPertanyaan.option[getHapus] != currentPertanyaan.answer) {
+        hapusSalah.push(getHapus + 1)
+      }
+      if (currentPertanyaan.option[getHapus] == currentPertanyaan.answer) {
+        continue
+      }
+    }
+    let hapus1 = document.getElementById("jawaban-" + hapusSalah[0])
+    let hapus2 = document.getElementById("jawaban-" + hapusSalah[1])
+
+    hapus1.style.display = "none"
+    hapus2.style.display = "none"
+
+    console.log(hapus1)
+    console.log(hapus2)
+}
