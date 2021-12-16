@@ -10,6 +10,7 @@ let btnJawaban2 = document.getElementById("jawaban-2")
 let btnJawaban3 = document.getElementById("jawaban-3")
 let btnJawaban4 = document.getElementById("jawaban-4")
 getNama.innerHTML = namaPemain
+let btnCall = document.getElementById("callbtn")
 
 
 function randomQuestion() {
@@ -183,6 +184,4 @@ function checkJawaban(jawaban) { //Jawaban adalah value dari tombol yg dipilih u
     score = 0
     countGame = 0
   }
-  randomQuestion()
 }
-
