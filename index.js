@@ -84,8 +84,18 @@ function randomQuestion() {
   //random pertanyaan2
   let randIndex = Math.floor(Math.random() * listMovie.length)
   pertanyaan = listMovie[randIndex]
-  return listMovie[randIndex]
+  let colPertanyaan = document.getElementById("pertanyaan")
+  let btnJawaban1 = document.getElementById("jawaban-1")
+  let btnJawaban2 = document.getElementById("jawaban-2")
+  let btnJawaban3 = document.getElementById("jawaban-3")
+  let btnJawaban4 = document.getElementById("jawaban-4")
+  colPertanyaan.innerHTML = pertanyaan.question
+  btnJawaban1.innerHTML = pertanyaan.option[0]
+  btnJawaban2.innerHTML = pertanyaan.option[1]
+  btnJawaban3.innerHTML = pertanyaan.option[2]
+  btnJawaban4.innerHTML = pertanyaan.option[3]
 }
+randomQuestion()
 
 function getReward(score) {
   let output = ""
