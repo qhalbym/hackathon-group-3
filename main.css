@@ -1,0 +1,41 @@
+/* body {
+  
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-position: center;
+  background-image: url("3bg.jpg");
+} */
+
+.card-pertama {
+  border-radius: 25px;
+}
+
+.card-kedua {
+  border-radius: 25px;
+}
+.card-ketiga {
+  border-radius: 25px;
+}
+.card-keempat {
+  border-radius: 25px;
+}
+
+.card-pertama:hover {
+  border: 2px solid green;
+  cursor: pointer;
+  border-radius: 25px;
+}
+.card-kedua:hover {
+  border: 2px solid purple;
+  cursor: pointer;
+  border-radius: 25px;
+}
+.card-ketiga:hover {
+  border: 2px solid blue;
+  cursor: pointer;
+  border-radius: 25px;
+}
+.card-keempat:hover {
+  border: 2px solid red;
+  cursor: pointer;
+  border-radius: 25px;
+}
