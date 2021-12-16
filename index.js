@@ -206,7 +206,6 @@ function login(event) {
 
 }
 
-
 function afterLogin() {
  
   let login = document.getElementById("login")
@@ -216,7 +215,6 @@ function afterLogin() {
 }
 
 function beforeLogin() {
- 
   let login = document.getElementById("login")
   let main = document.getElementById("main")
   login.style.display = "flex";
@@ -228,4 +226,28 @@ beforeLogin()
 let audioBatman = document.getElementById("audio")
 function batman() {
   audioBatman.play()
+}
+
+function fiftyFifty() {
+  let hapusSalah = []
+  let getHapus = 0
+    while (hapusSalah.length < 2) {
+      getHapus = Math.floor(Math.random() * 4)
+      if (hapusSalah[0]) {
+        if (hapusSalah[0] == getHapus) {
+          continue
+        }
+      }
+      if (currentPertanyaan.option[getHapus] != currentPertanyaan.answer && getHapus != hapusSalah[0]) {
+        hapusSalah.push(getHapus + 1)
+      }
+      if (currentPertanyaan.option[getHapus] == currentPertanyaan.answer) {
+        continue
+      }
+    }
+    let hapus1 = document.getElementById("jawaban-" + hapusSalah[0])
+    let hapus2 = document.getElementById("jawaban-" + hapusSalah[1])
+
+    hapus1.style.display = "none"
+    hapus2.style.display = "none"
 }
