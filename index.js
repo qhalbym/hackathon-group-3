@@ -9,6 +9,12 @@ let btnJawaban1 = document.getElementById("jawaban-1")
 let btnJawaban2 = document.getElementById("jawaban-2")
 let btnJawaban3 = document.getElementById("jawaban-3")
 let btnJawaban4 = document.getElementById("jawaban-4")
+let colJawab1 = document.getElementById("jwb-1")
+let colJawab2 = document.getElementById("jwb-2")
+let colJawab3 = document.getElementById("jwb-3")
+let colJawab4 = document.getElementById("jwb-4")
+let judulTanya = document.getElementById("judul-pertanyaan")
+judulTanya.innerHTML = "Question 1/10"
 
 
 
@@ -174,15 +180,31 @@ function checkJawaban(jawaban) { //Jawaban adalah value dari tombol yg dipilih u
     getScore.innerHTML = score
   }
   countGame++
-  console.log(countGame)
+  colJawab1.style.visibility = "visible"
+  colJawab2.style.visibility = "visible"
+  colJawab3.style.visibility = "visible"
+  colJawab4.style.visibility = "visible"
 
-  if (countGame === 10) {
+  if (countGame == 10) {
     let reward = getReward(score)
-    console.log(reward)
-    // return reward
+    let showScore = document.getElementById("skorAkhir")
+    let ket = document.getElementById("keterangan")
+    let img = document.createElement('img');
+    img.src = "./Assets/images/stark.jpg"
+    img.width = "200px"
+    img.height = "auto"
+    
+    ket.style["font-size"] = "20px"
+    ket.innerHTML = "Hebat!! Sepertinya kamu secerdas Tony Stark"
+    showScore.innerHTML = `Your Score is ${score}`
+    showImage.appendChild(img)
+    $("#rewardModal").modal("show")
     score = 0
     countGame = 0
+    currentPertanyaan = {}
   }
+  judulTanya.innerHTML = `Question ${countGame + 1}/10`
+
   randomQuestion()
 }
 
@@ -230,24 +252,27 @@ function batman() {
 
 function fiftyFifty() {
   let hapusSalah = []
-  let getHapus = 0
-    while (hapusSalah.length < 2) {
-      getHapus = Math.floor(Math.random() * 4)
-      if (hapusSalah[0]) {
-        if (hapusSalah[0] == getHapus) {
-          continue
-        }
-      }
-      if (currentPertanyaan.option[getHapus] != currentPertanyaan.answer && getHapus != hapusSalah[0]) {
+  while (hapusSalah.length < 2) {
+    getHapus = Math.floor(Math.random() * 4)
+    let pertanyaan = currentPertanyaan.option[getHapus]
+    let jawaban = currentPertanyaan.answer
+    if (hapusSalah.length == 1) {
+      if (pertanyaan != jawaban || getHapus != hapusSalah[0]) {
         hapusSalah.push(getHapus + 1)
-      }
-      if (currentPertanyaan.option[getHapus] == currentPertanyaan.answer) {
+      } else {
         continue
       }
+    } else {
+      if (pertanyaan != jawaban) {
+        hapusSalah.push(getHapus + 1)
+      }
     }
-    let hapus1 = document.getElementById("jawaban-" + hapusSalah[0])
-    let hapus2 = document.getElementById("jawaban-" + hapusSalah[1])
-
-    hapus1.style.display = "none"
-    hapus2.style.display = "none"
+  }
+  let hapus1 = document.getElementById("jwb-" + hapusSalah[0])
+  let hapus2 = document.getElementById("jwb-" + hapusSalah[1])
+  let btnSnap = document.getElementById("snap")
+  
+  hapus1.style.visibility = "hidden"
+  hapus2.style.visibility = "hidden"
+  btnSnap.style.display = "none"
 }
