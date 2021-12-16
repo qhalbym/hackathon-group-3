@@ -1,5 +1,7 @@
 function randomQuestion(array) {
   //random pertanyaan2
+  let randIndex = Math.floor(Math.random() * array.length)
+  return array[randIndex]
 }
 
 let mcu = [
