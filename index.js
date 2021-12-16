@@ -1,6 +1,6 @@
 let countGame = 0
 let score = 0
-let namaPemain = "Son Goku"
+let namaPemain = ""
 let getNama = document.getElementById("nama-pemain")
 let getScore = document.getElementById("score-board")
 let currentPertanyaan = {}
@@ -9,7 +9,7 @@ let btnJawaban1 = document.getElementById("jawaban-1")
 let btnJawaban2 = document.getElementById("jawaban-2")
 let btnJawaban3 = document.getElementById("jawaban-3")
 let btnJawaban4 = document.getElementById("jawaban-4")
-getNama.innerHTML = namaPemain
+
 
 
 function randomQuestion() {
@@ -185,6 +185,45 @@ function checkJawaban(jawaban) { //Jawaban adalah value dari tombol yg dipilih u
   }
   randomQuestion()
 }
+
+function login(event) {
+  event.preventDefault()
+  
+  let namaField = document.getElementById("nama")
+  let ageField = document.getElementById("age")
+  namaPemain = namaField.value;
+  getNama.innerHTML = namaPemain
+  let umur = Number(ageField.value);
+  
+
+  if (!namaPemain || !umur) {
+    alert("nama & umur harus diisi")
+    } else if (typeof namaPemain === "string" && typeof umur === "number") {
+      afterLogin()
+  } else  {
+    alert("nama & umur harus diisi")
+  }
+
+}
+
+
+function afterLogin() {
+ 
+  let login = document.getElementById("login")
+  let main = document.getElementById("main")
+  login.style.display = "none";
+  main.style.display = "block"
+}
+
+function beforeLogin() {
+ 
+  let login = document.getElementById("login")
+  let main = document.getElementById("main")
+  login.style.display = "flex";
+  main.style.display = "none"
+}
+
+beforeLogin()
 
 let audioBatman = document.getElementById("audio")
 function batman() {
