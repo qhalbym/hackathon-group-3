@@ -57,8 +57,9 @@ body {
 
 .login-window {
   background-color: #ffffffc6;
-  width: 70vw;
-  padding: 80px 90px;
+  width: 40vw;
+  height: 75vh;
+  padding: 20px 90px;
 }
 
 .login-text {
