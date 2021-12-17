@@ -243,7 +243,7 @@ function beforeLogin() {
   main.style.display = "none"
 }
 
-beforeLogin()
+// beforeLogin()
 
 let audioBatman = document.getElementById("audio")
 function batman() {
