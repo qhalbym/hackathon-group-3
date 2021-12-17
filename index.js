@@ -1,7 +1,6 @@
 let countGame = 0
 let score = 0
 let namaPemain = ""
-let countSnap = 0
 let sudahDihapus = 0
 let getNama = document.getElementById("nama-pemain")
 let getScore = document.getElementById("score-board")
@@ -273,16 +272,11 @@ function fiftyFifty() {
   }
 
   let btnSnap = document.getElementById("snap")
-  console.log(output)
   let hapus1 = document.getElementById("jwb-" + (output[0] + 1))
   let hapus2 = document.getElementById("jwb-" + (output[1] + 1))
   hapus1.style.visibility = "hidden"
   hapus2.style.visibility = "hidden"
-  
-  if(countSnap === 2){
-    btnSnap.style.display = "none"
-    countSnap = 0
-  }
+  btnSnap.style.display = "none"
 }
 
 function playAgain() {
