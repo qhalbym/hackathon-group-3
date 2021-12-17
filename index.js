@@ -226,6 +226,8 @@ function login(event) {
     alert("nama & umur harus diisi")
   } else if (typeof namaPemain === "string" && typeof umur === "number") {
     afterLogin()
+  } else if (umur < 13) {
+    alert("Belum bisa nonton semua film MCU")
   } else {
     alert("nama & umur harus diisi")
   }
