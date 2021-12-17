@@ -17,6 +17,9 @@ let colJawab3 = document.getElementById("jwb-3")
 let colJawab4 = document.getElementById("jwb-4")
 let judulTanya = document.getElementById("judul-pertanyaan")
 judulTanya.innerHTML = "Question 1/10"
+let wakandatim = document.getElementById("ask")
+let callAvengers = document.getElementById("call")
+let btnSnap = document.getElementById("snap")
 
 
 
@@ -195,11 +198,11 @@ function checkJawaban(jawaban) { //Jawaban adalah value dari tombol yg dipilih u
     img.src = "./Assets/images/stark.jpg"
     img.width = "200px"
     img.height = "auto"
-    
+
     ket.style["font-size"] = "20px"
-    ket.innerHTML = "Hebat!! Sepertinya kamu secerdas Tony Stark"
+    ket.innerHTML = reward
     showScore.innerHTML = `Your Score is ${score}`
-    showImage.appendChild(img)
+    // showImage.appendChild(img)
     $("#rewardModal").modal("show")
     score = 0
     countGame = 0
@@ -212,26 +215,26 @@ function checkJawaban(jawaban) { //Jawaban adalah value dari tombol yg dipilih u
 
 function login(event) {
   event.preventDefault()
-  
+
   let namaField = document.getElementById("nama")
   let ageField = document.getElementById("age")
   namaPemain = namaField.value;
   getNama.innerHTML = namaPemain
   let umur = Number(ageField.value);
-  
+
 
   if (!namaPemain || !umur) {
     alert("nama & umur harus diisi")
-    } else if (typeof namaPemain === "string" && typeof umur === "number") {
-      afterLogin()
-  } else  {
+  } else if (typeof namaPemain === "string" && typeof umur === "number") {
+    afterLogin()
+  } else {
     alert("nama & umur harus diisi")
   }
 
 }
 
 function afterLogin() {
- 
+
   let login = document.getElementById("login")
   let main = document.getElementById("main")
   login.style.display = "none";
@@ -250,6 +253,7 @@ beforeLogin()
 let audioBatman = document.getElementById("audio")
 function batman() {
   audioBatman.play()
+  callAvengers.style.display = 'none'
 }
 
 function fiftyFifty() {
@@ -267,7 +271,6 @@ function fiftyFifty() {
       break
     }
   }
-
   let btnSnap = document.getElementById("snap")
   
   countSnap ++
@@ -277,10 +280,10 @@ function fiftyFifty() {
   }
 }
 
-function playAgain(){
+function playAgain() {
   let loginPage = document.getElementById("login")
   let mainPage = document.getElementById("main")
-  
+
 
   loginPage.style.display = 'flex'
   mainPage.style.display = 'none'
@@ -294,4 +297,9 @@ function playAgain(){
 
   let formNama = document.getElementById("nama")
   formNama.value = ''
+}
+
+function wakanda() {
+  $("#popup-wakanda").modal("show")
+  wakandatim.style.display = 'none'
 }
