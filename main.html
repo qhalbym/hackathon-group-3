@@ -47,7 +47,7 @@
 
   <div id="main">
     <div id="main-name-container" class="container">
-      <div class="row"> 
+      <div class="row">
         <div class="col-md-8">
           <div class="card shadow-lg" style="opacity: 75%;">
             <div class="card-body">
@@ -138,7 +138,7 @@
             <h4>Call Avenger</h4>
           </button>
         </div>
-        <div class="p-2"><button type="button" id="ask" class="btn btn-primary bantuan">
+        <div class="p-2"><button type="button" id="ask" class="btn btn-primary bantuan" onclick="wakanda()">
             <h4>Ask Wakanda</h4>
           </button>
         </div>
@@ -158,6 +158,34 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-body">
+        <div id="tampilScore">
+          <h1 style=font-size:50px id="skorAkhir"></h1>
+        </div>
+        <div id="showImage">
+        </div>
+        <div class="d-flex justify-content-center">
+          <div class="text center fw-bold fst-italic" id="keterangan">
+          </div>
+        </div>
+        <div class="d-flex justify-content-center">
+          <button type="button" class="btn btn-link bg-transparent " id="reset" onclick="playAgain()">
+            <img src="/Assets/images/Hulk.png" alt="">
+            <br>
+            Play Again
+          </button>
+        </div>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog" id="popup-wakanda">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h1>TIM WAKANDA LAGI WHF</h1>
         <div id="tampilScore">
           <h1 style=font-size:50px id="skorAkhir"></h1>
         </div>

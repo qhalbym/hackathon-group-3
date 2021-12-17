@@ -1,6 +1,8 @@
 let countGame = 0
 let score = 0
 let namaPemain = ""
+let countSnap = 0
+let sudahDihapus = 0
 let getNama = document.getElementById("nama-pemain")
 let getScore = document.getElementById("score-board")
 let currentPertanyaan = {}
@@ -15,6 +17,9 @@ let colJawab3 = document.getElementById("jwb-3")
 let colJawab4 = document.getElementById("jwb-4")
 let judulTanya = document.getElementById("judul-pertanyaan")
 judulTanya.innerHTML = "Question 1/10"
+let wakandatim = document.getElementById("ask")
+let callAvengers = document.getElementById("call")
+let btnSnap = document.getElementById("snap")
 
 
 
@@ -138,7 +143,7 @@ randomQuestion()
 
 function getReward(score) {
   let output = ""
-  let reward = ["Paling baik", "Boleh lah", "Alakadarnya", "Ejek Pemainnya"] // Nanti isi reward popup dari frontend
+  let reward = ["You are MARVELITES", "Good Job", "Bad", "DC Lovers"] // Nanti isi reward popup dari frontend
   if (score >= 9) {
     output = reward[0]
   } else if (score >= 7) {
@@ -193,11 +198,11 @@ function checkJawaban(jawaban) { //Jawaban adalah value dari tombol yg dipilih u
     img.src = "./Assets/images/stark.jpg"
     img.width = "200px"
     img.height = "auto"
-    
+
     ket.style["font-size"] = "20px"
-    ket.innerHTML = "Hebat!! Sepertinya kamu secerdas Tony Stark"
-    showScore.innerHTML = `Your Score is ${score}`
-    showImage.appendChild(img)
+    ket.innerHTML = reward
+    showScore.innerHTML = `Your Score : ${score}`
+    // showImage.appendChild(img)
     $("#rewardModal").modal("show")
     score = 0
     countGame = 0
@@ -210,26 +215,26 @@ function checkJawaban(jawaban) { //Jawaban adalah value dari tombol yg dipilih u
 
 function login(event) {
   event.preventDefault()
-  
+
   let namaField = document.getElementById("nama")
   let ageField = document.getElementById("age")
   namaPemain = namaField.value;
   getNama.innerHTML = namaPemain
   let umur = Number(ageField.value);
-  
+
 
   if (!namaPemain || !umur) {
     alert("nama & umur harus diisi")
-    } else if (typeof namaPemain === "string" && typeof umur === "number") {
-      afterLogin()
-  } else  {
+  } else if (typeof namaPemain === "string" && typeof umur === "number") {
+    afterLogin()
+  } else {
     alert("nama & umur harus diisi")
   }
 
 }
 
 function afterLogin() {
- 
+
   let login = document.getElementById("login")
   let main = document.getElementById("main")
   login.style.display = "none";
@@ -248,31 +253,58 @@ beforeLogin()
 let audioBatman = document.getElementById("audio")
 function batman() {
   audioBatman.play()
+  callAvengers.style.display = 'none'
 }
 
 function fiftyFifty() {
-  let hapusSalah = []
-  while (hapusSalah.length < 2) {
-    getHapus = Math.floor(Math.random() * 4)
-    let pertanyaan = currentPertanyaan.option[getHapus]
-    let jawaban = currentPertanyaan.answer
-    if (hapusSalah.length == 1) {
-      if (pertanyaan != jawaban || getHapus != hapusSalah[0]) {
-        hapusSalah.push(getHapus + 1)
-      } else {
-        continue
-      }
-    } else {
-      if (pertanyaan != jawaban) {
-        hapusSalah.push(getHapus + 1)
-      }
+  let arrSalah = []
+  let output = []
+  for (let i = 0; i < currentPertanyaan.option.length; i++) {
+    let pertanyaan = currentPertanyaan.option[i];
+    if (pertanyaan != currentPertanyaan.answer) {
+      arrSalah.push(i)
     }
   }
-  let hapus1 = document.getElementById("jwb-" + hapusSalah[0])
-  let hapus2 = document.getElementById("jwb-" + hapusSalah[1])
+  let getHapus = Math.floor(Math.random() * arrSalah.length)
+  for (let j = 0; j < arrSalah.length; j++) {
+    if (j != getHapus) {
+      output.push(j)
+    }
+  }
+
   let btnSnap = document.getElementById("snap")
-  
+  console.log(output)
+  let hapus1 = document.getElementById("jwb-" + (output[0] + 1))
+  let hapus2 = document.getElementById("jwb-" + (output[1] + 1))
   hapus1.style.visibility = "hidden"
   hapus2.style.visibility = "hidden"
-  btnSnap.style.display = "none"
+  
+  if(countSnap === 2){
+    btnSnap.style.display = "none"
+    countSnap = 0
+  }
+}
+
+function playAgain() {
+  let loginPage = document.getElementById("login")
+  let mainPage = document.getElementById("main")
+
+
+  loginPage.style.display = 'flex'
+  mainPage.style.display = 'none'
+
+  getNama = document.getElementById("nama-pemain")
+  getScore = document.getElementById("score-board")
+
+  getNama.innerHTML = ''
+  getScore.innerHTML = 0
+  countGame = 0
+
+  let formNama = document.getElementById("nama")
+  formNama.value = ''
+}
+
+function wakanda() {
+  $("#popup-wakanda").modal("show")
+  wakandatim.style.display = 'none'
 }
