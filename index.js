@@ -142,7 +142,7 @@ randomQuestion()
 
 function getReward(score) {
   let output = ""
-  let reward = ["Paling baik", "Boleh lah", "Alakadarnya", "Ejek Pemainnya"] // Nanti isi reward popup dari frontend
+  let reward = ["You are MARVELITES", "Good Job", "Bad", "DC Lovers"] // Nanti isi reward popup dari frontend
   if (score >= 9) {
     output = reward[0]
   } else if (score >= 7) {
@@ -200,7 +200,7 @@ function checkJawaban(jawaban) { //Jawaban adalah value dari tombol yg dipilih u
 
     ket.style["font-size"] = "20px"
     ket.innerHTML = reward
-    showScore.innerHTML = `Your Score is ${score}`
+    showScore.innerHTML = `Your Score : ${score}`
     // showImage.appendChild(img)
     $("#rewardModal").modal("show")
     score = 0
