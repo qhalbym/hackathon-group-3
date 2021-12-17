@@ -296,6 +296,11 @@ function playAgain() {
 
   let formNama = document.getElementById("nama")
   formNama.value = ''
+
+  wakandatim.style.display = 'block'
+  btnSnap.style.display = 'block'
+  callAvengers.style.display = 'block'
+
 }
 
 function wakanda() {
