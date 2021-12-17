@@ -276,3 +276,22 @@ function fiftyFifty() {
   hapus2.style.visibility = "hidden"
   btnSnap.style.display = "none"
 }
+
+function playAgain(){
+  let loginPage = document.getElementById("login")
+  let mainPage = document.getElementById("main")
+  
+
+  loginPage.style.display = 'flex'
+  mainPage.style.display = 'none'
+
+  getNama = document.getElementById("nama-pemain")
+  getScore = document.getElementById("score-board")
+
+  getNama.innerHTML = ''
+  getScore.innerHTML = 0
+  countGame = 0
+
+  let formNama = document.getElementById("nama")
+  formNama.value = ''
+}
