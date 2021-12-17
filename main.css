@@ -159,9 +159,11 @@ html, body {
  }
 
 #main-name-container {
-  display: inline-block;
-  margin-top: 80px;
-  width: 100%;
+  display: block;
+  padding-top: 50px;
+  width: 50%;
+  justify-content: center;
+  border-radius: 10px;
 }
 
 #nama-pemain {
