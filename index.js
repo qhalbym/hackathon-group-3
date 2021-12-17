@@ -257,23 +257,28 @@ function batman() {
 }
 
 function fiftyFifty() {
-  let getHapus = Math.floor(Math.random() * 4)
-  while (getHapus === sudahDihapus) {
-    getHapus = Math.floor(Math.random() * 4)
-    let pertanyaan = currentPertanyaan.option[getHapus]
-    let jawaban = currentPertanyaan.answer
-    if(getHapus !== sudahDihapus){
-      if(pertanyaan !== jawaban){
-        sudahDihapus = getHapus
-        let hapus1 = document.getElementById("jwb-" + getHapus)
-        hapus1.style.visibility = "hidden"
-      }
-      break
+  let arrSalah = []
+  let output = []
+  for (let i = 0; i < currentPertanyaan.option.length; i++) {
+    let pertanyaan = currentPertanyaan.option[i];
+    if (pertanyaan != currentPertanyaan.answer) {
+      arrSalah.push(i)
     }
   }
+  let getHapus = Math.floor(Math.random() * arrSalah.length)
+  for (let j = 0; j < arrSalah.length; j++) {
+    if (j != getHapus) {
+      output.push(j)
+    }
+  }
+
   let btnSnap = document.getElementById("snap")
+  console.log(output)
+  let hapus1 = document.getElementById("jwb-" + (output[0] + 1))
+  let hapus2 = document.getElementById("jwb-" + (output[1] + 1))
+  hapus1.style.visibility = "hidden"
+  hapus2.style.visibility = "hidden"
   
-  countSnap ++
   if(countSnap === 2){
     btnSnap.style.display = "none"
     countSnap = 0
