@@ -1,6 +1,8 @@
 let countGame = 0
 let score = 0
 let namaPemain = ""
+let countSnap = 0
+let sudahDihapus = 0
 let getNama = document.getElementById("nama-pemain")
 let getScore = document.getElementById("score-board")
 let currentPertanyaan = {}
@@ -251,30 +253,28 @@ function batman() {
 }
 
 function fiftyFifty() {
-  let hapusSalah = []
-  while (hapusSalah.length < 2) {
+  let getHapus = Math.floor(Math.random() * 4)
+  while (getHapus === sudahDihapus) {
     getHapus = Math.floor(Math.random() * 4)
     let pertanyaan = currentPertanyaan.option[getHapus]
     let jawaban = currentPertanyaan.answer
-    if (hapusSalah.length == 1) {
-      if (pertanyaan != jawaban || getHapus != hapusSalah[0]) {
-        hapusSalah.push(getHapus + 1)
-      } else {
-        continue
+    if(getHapus !== sudahDihapus){
+      if(pertanyaan !== jawaban){
+        sudahDihapus = getHapus
+        let hapus1 = document.getElementById("jwb-" + getHapus)
+        hapus1.style.visibility = "hidden"
       }
-    } else {
-      if (pertanyaan != jawaban) {
-        hapusSalah.push(getHapus + 1)
-      }
+      break
     }
   }
-  let hapus1 = document.getElementById("jwb-" + hapusSalah[0])
-  let hapus2 = document.getElementById("jwb-" + hapusSalah[1])
+
   let btnSnap = document.getElementById("snap")
   
-  hapus1.style.visibility = "hidden"
-  hapus2.style.visibility = "hidden"
-  btnSnap.style.display = "none"
+  countSnap ++
+  if(countSnap === 2){
+    btnSnap.style.display = "none"
+    countSnap = 0
+  }
 }
 
 function playAgain(){
