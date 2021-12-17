@@ -118,7 +118,7 @@ function randomQuestion() {
 
   //random pertanyaan2
   let randIndex = Math.floor(Math.random() * listMovie.length)
-  if (!sudahMuncul[randIndex]) {
+  if (sudahMuncul[randIndex] == undefined) {
     sudahMuncul[randIndex] = 0
     pertanyaan = listMovie[randIndex]
   } else {
