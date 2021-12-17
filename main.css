@@ -113,7 +113,7 @@ html, body {
   align-items: center;
   justify-content: center;
   color: black;
-  background-image: url('./Assets/images/backgroundMarvel.jpg');
+  background-image: url('./Assets/images/mainBackground.jpg');
   background-size: cover;
   opacity: 80%;
 }
